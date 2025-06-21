@@ -63,6 +63,7 @@ rejestracją uczestników.
 
 ## Struktura projektu
 
+```
 .
 ├── app
 │   ├── admin.py
@@ -81,7 +82,19 @@ rejestracją uczestników.
 │   │   ├── base.html
 │   │   ├── index.html
 │   │   ├── partials
+│   │   │   ├── add_category.html
+│   │   │   ├── add_course.html
+│   │   │   ├── category.html
+│   │   │   ├── course_detail.html
+│   │   │   ├── course.html
+│   │   │   ├── issue.html
+│   │   │   ├── navbar.html
+│   │   │   ├── panel_oferta.html
+│   │   │   ├── register.html
+│   │   │   └── template.html
 │   │   └── registration
+│   │       ├── login.html
+│   │       └── register.html
 │   ├── tests.py
 │   ├── urls.py
 │   └── views.py
@@ -103,4 +116,8 @@ rejestracją uczestników.
 │   ├── schema_2.txt
 │   └── schema_3.txt
 ├── README.md
-└── requirements.txt
+├── requirements.txt
+└── static
+    └── javascript
+        └── js.js
+```
