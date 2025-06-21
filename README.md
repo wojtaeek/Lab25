@@ -75,38 +75,21 @@ rejestracją uczestników.
 │   │   ├── 0003_issue.py
 │   │   ├── 0004_alter_category_parent_category.py
 │   │   ├── 0005_alter_category_order_alter_course_order.py
-│   │   ├── __init__.py
+│   │   └── __init__.py
 │   ├── models.py
 │   ├── templates
 │   │   ├── base.html
 │   │   ├── index.html
 │   │   ├── partials
-│   │   │   ├── add_category.html
-│   │   │   ├── add_course.html
-│   │   │   ├── category.html
-│   │   │   ├── course_detail.html
-│   │   │   ├── course.html
-│   │   │   ├── issue.html
-│   │   │   ├── navbar.html
-│   │   │   ├── panel_oferta.html
-│   │   │   ├── register.html
-│   │   │   └── template.html
 │   │   └── registration
-│   │       ├── login.html
-│   │       └── register.html
 │   ├── tests.py
 │   ├── urls.py
 │   └── views.py
-├── db.sqlite3
 ├── docker-compose.yml
 ├── Dockerfile
 ├── Lab25
 │   ├── asgi.py
 │   ├── __init__.py
-│   │   ├── __init__.cpython-313.pyc
-│   │   ├── settings.cpython-313.pyc
-│   │   ├── urls.cpython-313.pyc
-│   │   └── wsgi.cpython-313.pyc
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
@@ -120,7 +103,4 @@ rejestracją uczestników.
 │   ├── schema_2.txt
 │   └── schema_3.txt
 ├── README.md
-├── requirements.txt
-└── static
-    └── javascript
-        └── js.js
+└── requirements.txt
