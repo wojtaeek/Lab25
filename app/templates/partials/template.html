@@ -1,0 +1,110 @@
+{% load static %}
+	{% include 'partials/navbar.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		crossorigin="anonymous">
+	<style>
+		.btn {
+			border: none;
+			outline: none;
+			padding: 10px 16px;
+			background-color: #f1f1f1;
+			cursor: pointer;
+			font-size: 18px;
+			width: 100%;
+		}
+
+		.active,
+		.btnsel:hover {
+			background-color: #666;
+			color: white;
+		}
+
+		.btnform:hover {
+			background-color: #666;
+			color: white;
+		}
+
+		#add_field .btn {
+			margin: 5px;
+			width: auto;
+		}
+
+		textarea {
+			width: 100%;
+			min-height: 100px;
+			margin-top: 10px;
+		}
+
+		.li {
+			display: flex;
+			align-items: center;
+			padding: 10px;
+			gap: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			margin-bottom: 5px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="row no-gutters" id="top_2btn">
+		<div class="col-5">
+			<button id="form_button" class="btn btnsel active">Formularz</button>
+		</div>
+		<div class="col-5">
+			<button id="scheme_button" class="btn btnsel">Szablon</button>
+		</div>
+		<div class="col-2">
+			<button id="save_button" class="btn" style="background-color: lightblue;">Zapisz</button>
+		</div>
+	</div>
+
+	<div class="row">
+		<div id="saved_items" class="col-2 p-2" style="min-height: 400px;">
+			<ul id="item_list" class="p-2">
+				{% for item in items %}
+				<li class="saved-item" data-filename={{item.name}} data-type={{ item.filetype }}
+					class="li">
+					{{item.name}}</li>
+				{% endfor %}
+			</ul>
+		</div>
+
+		<div id="field_buttons" class="col-10">
+			<div id="add_field" class="p-2">
+				{% for button in buttons %}
+				<button class="btn">{{ button.name }}</button>
+				{% endfor %}
+			</div>
+			<div id="main_element">
+				<ol id="form"></ol>
+				<div id="scheme" style="display: none;"><textarea id="scheme_text"></textarea></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="saveBanner" style="
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: #28a745;
+		color: white;
+		text-align: center;
+		padding: 10px;
+		display: none;
+		z-index: 1000;
+	">
+		Save successful
+	</div>
+	<script src="{% static 'javascript/js.js' %}"></script>
+</body>
+
+</html>

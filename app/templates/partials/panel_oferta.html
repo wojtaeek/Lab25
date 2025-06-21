@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3> Menu operacji </h3>
+<a href="{% url 'list_categories' %}?type=json">Lista kategorii (json)</a><br>
+<a href="{% url 'list_courses' %}?type=json">Lista kursów (json)</a><br>
+<a href="{% url 'add_category' %}">Dodawanie kategorii (formularz)</a><br>
+<a href="{% url 'add_course' %}">Dodawanie kursu (formularz)</a><br>
+<a href="{% url 'issues_json' %}">Lista błędów (json)</a><br>
+<a href="{% url 'courses_registrations_json' %}">Lista rejestracji na kursy (json)</a><br>
+<a href="{% url 'list_forms' %}">Lista formularzy i schematów (json)</a><br>
+{% endblock content %}

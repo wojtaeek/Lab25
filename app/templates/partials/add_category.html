@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="align-center col-8 offset-2">
+	<p class="lead mb-3 ml-0">Add Category</p>
+	<hr />
+	<form method="POST" action="{% url 'add_category' %}" autocomplete="off">
+		{% csrf_token %}
+		<div class="form-group mb-3">
+			<label for="name">Category Name</label>
+			<input type="text" name="name" id="name" class="form-control" maxlength="40" required>
+		</div>
+		<div class="form-group mb-3">
+			<label for="parent_category">Parent Category (optional)</label>
+			<select name="parent_category" id="parent_category" class="form-control">
+				<option value="">---------</option>
+				{% for category in categories %}
+				<option value="{{ category.id }}">{{ category.name }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="form-group mb-3">
+			<label for="order">Order</label>
+			<input type="number" name="order" id="order" class="form-control" min="1" required>
+		</div>
+		<div class="form-group mb-3">
+			<label for="publish">Publish</label>
+			<input type="checkbox" name="publish" id="publish" class="form-check-input">
+		</div>
+		<button type="submit" class="btn btn-success mt-2">Add Category</button>
+		<button type="submit" class="btn btn-success mt-2">Add Category</button>
+	</form>
+</div>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for category in categories %}
+
+{% if category.publish %}
+<div class="category">
+	<h4>{{ category.name }}</h2>
+		<a href="{% url 'list_courses' category.id %}">Kursy w tej kategorii</a>
+</div>
+{% endif %}
+
+{% endfor %}
+
+{% endblock content %}

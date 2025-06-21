@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url 'list_courses' course.category.id %}">Wróć do listy kursów w kategorii {{ course.category.name }}</a>
+<h3>Szczegóły kursu {{ course.title }}</h3>
+{% if course %}
+<div class="course">
+	<h2>Tytuł kursu: {{ course.title }}</h2>
+	<p>Opis: {{ course.description }}</p>
+	<p>Liczba godzin: {{ course.hours}}</p>
+	<p>Cena: {{ course.price }}</p>
+	<p>Kategoria: {{ course.category }}</p>
+</div>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url 'list_categories' %}">Powrót do kategorii</a>
+<h3>Kursy w kategorii {{ category|default:"każdej" }}</h3>
+{% for course in courses %}
+{% if course.publish %}
+<div class="course">
+	<h2>Tytuł kursu: {{ course.title }}</h2>
+	<p>Opis: {{ course.description }}</p>
+	<p>Liczba godzin: {{ course.hours}}</p>
+	<a href="{% url 'course_detail' course.id %}">Szczegóły</a>
+</div>
+{% endif %}
+{% endfor %}
+{% endblock content %}

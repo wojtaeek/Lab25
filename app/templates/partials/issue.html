@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Issues</h2>
+
+<form id="add-issue-form" method="post" action="{% url 'create_issue' %}">
+	{% csrf_token %}
+	<input type="text" name="title" placeholder="Title" required>
+	<textarea name="description" placeholder="Description" required></textarea>
+	<button type="submit">Add Issue</button>
+</form>
+
+<hr>
+
+{% if messages %}
+<ul class="messages">
+	{% for message in messages %}
+	<li class="{{ message.tags }}">{{ message }}</li>
+	{% endfor %}
+</ul>
+{% endif %}
+<ul id="issues-list">
+	{% for issue in issues %}
+	<li data-id="{{ issue.id }}">
+		<strong>{{ issue.title }}</strong> - {{ issue.description }}
+		<span>Status: {{ issue.status }}</span>
+		{% if issue.status == "open" %}
+		<form method="post" action="{% url 'update_issue' issue.id %}" style="display:inline;">
+			{% csrf_token %}
+			<button type="submit">Close</button>
+		</form>
+		{% endif %}
+		<form method="post" action="{% url 'delete_issue' issue.id %}" style="display:inline;">
+			{% csrf_token %}
+			<button type="submit" onclick="return confirm('Delete this issue?')">Delete</button>
+		</form>
+	</li>
+	{% empty %}
+	<li>No issues found.</li>
+	{% endfor %}
+</ul>
+{% endblock %}
